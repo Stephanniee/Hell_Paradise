@@ -1,0 +1,496 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(121, 10, 75);
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #fff;
+    height: 125px;
+    margin: 10px;
+    border-radius: 50px;
+    padding: 0.3rem;
+}
+
+.navbar-brand,
+.offcanvas-title {
+    font-weight: 800;
+    color: #ff33a0;
+    font-size: 45px;
+    transition: 0.3s background-color;
+
+}
+
+.sign-up {
+    background-color: #ff33a0;
+    color: white;
+    font-size: 18px;
+    padding: 5px 8px;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.sign-up:hover {
+    background-color: #333;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25em;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #666777;
+    font-weight: 400;
+    position: relative;
+    font-size: large;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff33a0;
+}
+
+/*end of header*/
+
+
+/*rules_box section*/
+.begin_btn,
+.rules_box,
+.container_box,
+.result_box {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2),
+        0px 6px 20px 0px rgba(0, 0, 0, 0.19);
+
+
+}
+
+.rules_box.activeInfo,
+.container_box.activeContainer,
+.result_box.activeResult {
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    z-index: 5;
+}
+
+.begin_btn button {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ff33a0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+
+}
+
+.rules_box {
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+}
+
+.rules_box .rules_title {
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    text-align: center;
+    padding: 0 30px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.rules_box .rules_list {
+    padding: 20px;
+    font-size: large;
+}
+
+.rules_box .rules_title .info {
+    font-size: 40px;
+}
+
+.rules_box .button {
+    border-top: 1px solid lightgrey;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.rules_box .button button {
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 0 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button button.quit {
+    color: #ff33a0;
+    background-color: white;
+    font-size: large;
+}
+
+.button button.restart {
+    color: white;
+    background-color: #ff33a0;
+    font-size: large;
+}
+
+.button button.quit:hover,
+.button button.restart:hover {
+    background-color: black;
+}
+
+/*end of rules_box section*/
+
+/*quiz_box section*/
+.container_box {
+    width: 550px;
+    background: #fff;
+    border-radius: 5px;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+}
+
+
+.container_box header {
+    height: 70px;
+    padding: 0 30px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+.container_box header .title {
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.container_box header .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background-color: #ff33a0;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+.container_box header .timer .text {
+    font-weight: 400;
+    font-size: 16px;
+    user-select: none;
+
+}
+
+.container_box header .timer .sec {
+    font-weight: 400;
+    font-size: 16px;
+    background: #333;
+    height: 30px;
+    width: 40px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid #666777;
+    user-select: none;
+}
+
+.container_box section {
+    padding: 25px 30px 20px 30px;
+    background: #fff;
+}
+
+.container_box section .question_title {
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+.container_box section .option_list {
+    padding: 20px 0;
+    display: block;
+}
+
+.container_box section .option {
+    background: #ff33a0;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+section .option_list .option:hover {
+    color: white;
+    background: #666777;
+    border-color: aliceblue;
+
+}
+
+.option_list .option:last-child {
+    margin-bottom: 0px;
+}
+
+.option_list .option .icon {
+    height: 26px;
+    width: 26px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 24px;
+    pointer-events: none;
+}
+
+.tick i {
+    color: green;
+}
+
+.cross i {
+    color: red;
+}
+
+section .option_list .option.correct {
+    background: green;
+    color: white;
+}
+
+section .option_list .option.incorrect {
+    background: red;
+    color: white;
+}
+
+section .option_list .option.disabled {
+    pointer-events: none;
+}
+
+.container_box footer {
+    height: 60px;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container_box footer .score_area span {
+    display: flex;
+    user-select: none;
+}
+
+footer .score_area span p {
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+.score_area span p:first-child {
+    padding-left: 0px;
+}
+
+footer .next_que {
+    display: none;
+    height: 40px;
+    padding: 0 13px;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #007bff;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+footer .next_que:hover {
+    background: black;
+}
+
+/*end of quiz_box section*/
+
+/*results section*/
+.result_box {
+    width: 400px;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+}
+
+.result_box .icon {
+    font-size: 100px;
+    font-weight: 600;
+    color: #ff33a0;
+}
+
+.result_box .complete_text {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.result_box .score_text span {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.score_text span p {
+    font-weight: 600;
+    padding: 0 4px;
+}
+
+.result_box .buttons {
+    display: flex;
+
+    margin-top: 20px 0;
+}
+
+.result_box .replay button {
+    height: 45px;
+    width: 150px;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #ff33a0;
+    border-radius: 10px;
+    border: 1px solid #ff33a0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    margin-bottom: 10px;
+}
+
+.result_box .replay button:hover {
+    background: black
+}
+
+/* end of results section*/
+
+
+
+
+/*footer*/
+footer.container {
+    height: 80px;
+    position: fixed;
+}
+
+/*footer*/
+
+
+/*Moblie*/
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .sign-up {
+        margin-right: 5px;
+    }
+
+    .navbar-toggler {
+        margin-left: 16px;
+    }
+
+    .result_box {
+        width: 300px;
+    }
+
+    .container-box {
+        width: 350px;
+        margin-top: 5%;
+    }
+
+    footer .next_que {
+        height: 40px;
+        margin-top: -11px;
+    }
+
+    .rules_box {
+        width: 90%;
+    }
+}
+
+/*Tablet*/
+@media screen and (min-width: 510px) {
+    .navbar {
+        height: 125px;
+        margin: 10px;
+    }
+
+
+}
+
+/*Laptop and Desktop*/
+@media screen and (min-width: 991px) and (max-width: 1300px) {
+
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #ff33a0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+
+
+}
+
+@media screen and (min-width: 1400px) {}

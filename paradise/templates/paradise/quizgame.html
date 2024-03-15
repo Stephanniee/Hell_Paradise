@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/quizstyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="begin_btn"><button>Begin Quiz</button></div>
+<div class="rules_box">
+    <div class="rules_title" style="color: white;">
+        <span>Rules Of The Quiz</span>
+    </div>
+    <div class="rules_list">
+        <div class="info" style="color: white;">1. You will only <span style="color:#ff33a0; font-weight: 600;">20
+                second</span> per each question.</div>
+        <div class="info" style="color: white;">2. You cannot exit the quiz whilst your playing.</div>
+        <div class="info" style="color: white;">3. Unanswered question will automatically be incorrect.
+        </div>
+        <div class="info" style="color: white;">4. You will get point on the basis of your correct answers.
+        </div>
+        <div class="info" style="color: white;">5. Have fun and Enjoy!!</div>
+    </div>
+    <div class="button">
+        <button class="quit">Exit Quiz</button>
+        <button class="restart">Continue</button>
+    </div>
+</div>
+
+<!--Quiz section-->
+<div class="container_box">
+    <header>
+        <div class="title">Are You A True Fan!!</div>
+        <div class="timer">
+            <div class="text">Time Left</div>
+            <div class="sec">10</div>
+        </div>
+    </header>
+    <section>
+        <div class="question_title">
+            <span> What is the name of the Curse occupying Yuji Itadori's body in "Jujutsu Kaisen"?</span>
+        </div>
+        <div class="option_list">
+            <div class="option">
+                <span>Jogo</span>
+                <div class="cross"><i class="fas fa-times"></i></div>
+            </div>
+            <div class="option">
+                <span>Ryomen Sukuna</span>
+                <div class="tick"><i class="fas fa-check"></i></div>
+            </div>
+            <div class="option">
+                <span>Mahito</span>
+                <div class="cross"><i class="fas fa-times"></i></div>
+            </div>
+            <div class="option">
+                <span>Gojo Saturu</span>
+                <div class="cross"><i class="fas fa-times"></i></div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="score_area">
+            <span>
+                <p>2</p>of<p>10</p>Questions
+            </span>
+        </div>
+        <button class="next_que">Next Question</button>
+    </footer>
+</div>
+<!--Result Box-->
+<div class="result_box">
+    <div class="icon"><i class="fa-solid fa-crown"></i></div>
+    <div class="complete_text">You've completed the quiz!</div>
+    <div class="score_text">
+        <span>You scored <p>3</p> out of <p>5</p>Questions</span>
+    </div>
+    <div class="replay">
+        <button class="play_again">Replay Quiz</button>
+        <button class="stop_game">Quit Quiz</button>
+    </div>
+</div>
+{% endblock %}

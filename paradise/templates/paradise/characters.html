@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extrahead %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/charastyle.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="imgBox">
+            <img src="{% static 'images/gabimaru.jpg' %}" alt="character gabimaru">
+        </div>
+        <div class="content">
+            <h2>Gabimaru</h2>
+            <p>Renowned as "Gabimaru the Hollow," the most formidable shinobi of Iwagakure faced the
+                death
+                penalty. However, driven by a desire to reunite with his wife, Yui, he embarks on a
+                quest
+                alongside Sagiri in search of the elixir of life.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="imgBox">
+            <img src="{% static 'images/mei.jpg' %}" alt="character mei">
+        </div>
+        <div class="content">
+            <h2>Mei</h2>
+            <p>A mysterious young girl travels alongside Hoko, a
+                tree-like entity. Her celestial form, resembling a One-Winged Angel, surpasses the other
+                Tensen
+                in beauty. Despite being the second oldest, she retains a youthful appearance due to her
+                size, which minimise her power from harming others.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="imgBox">
+            <img src="{% static 'images/sagiri.jpg' %}" alt="character sagiri">
+        </div>
+        <div class="content">
+            <h2>Sagiri</h2>
+            <p>The daughter of the Yamada Clan's leader, possesses unmatched swordsmanship but wrestles
+                with moral qualms about killing. Despite her exceptional skill, she holds the lowest
+                rank, 12th,
+                in the Ittō-Ryū School due to her gender. Tasked as Gabimaru's executioner.</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="imgBox">
+            <img src="{% static 'images/yuzuriha.jpg' %}" alt="character yuzuriha">
+        </div>
+        <div class="content">
+            <h2>Yuzuriha</h2>
+            <p>An Kunoichi (female ninja) from mysterious origins faced execution for infiltrating a
+                castle and
+                assassinating its daimyo. Becoming an early ally to Gabimaru and Sagiri on the island,
+                she
+                exhibits an overly affectionate demeanor towards all.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="imgBox">
+            <img src="{% static 'images/zhu jin.jpg' %}" alt="character zhu jin">
+        </div>
+        <div class="content">
+            <h2>Zhu Jin</h2>
+            <p>One of the Tensen (heavenly immortal), specialising in breathing techinque and affiliated
+                with
+                the water element. Despite a childish disposition, she perceives eliminating intruders
+                as an
+                irksome duty. She possesses the ability to partially transform between male and
+                female.</p>
+        </div>
+    </div>
+ 
+    <div class="card">
+        <div class="imgBox">
+            <img src="{% static 'images/tamiya.jpg' %}" alt="character tamiya">
+        </div>
+        <div class="content">
+            <h2>Tamiya</h2>
+            <p>A wandering swordsman, condemned to death for defying a daimyo (feudal lord) Disbelieving
+                his
+                claim of slaying a real dragon, the daimyo mocked him, leading to the destruction of the
+                dragon
+                plaque and the entire gate.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

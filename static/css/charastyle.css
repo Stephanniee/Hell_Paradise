@@ -1,0 +1,238 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Navbar styling */
+.navbar {
+    background-color: #fff;
+    height: 125px;
+    margin: 10px;
+    border-radius: 50px;
+    padding: 0.3rem;
+}
+
+.navbar-brand,
+.offcanvas-title {
+    font-weight: 800;
+    color: #ff33a0;
+    font-size: 45px;
+    transition: 0.3s background-color;
+    
+}
+
+.sign-up {
+    background-color: #ff33a0;
+    color: white;
+    font-size: 18px;
+    padding: 5px 8px;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.sign-up:hover {
+    background-color: #333;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25em;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #666777;
+    font-weight: 400;
+    position: relative;
+    font-size: large;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color:#ff33a0 ;
+}
+/*main*/ 
+main {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, #FFFFFF, #ff9bd0, #FFFFFF);
+}
+
+/*character page*/
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap:wrap;
+    gap: 90px 90px;
+    padding: 80px 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.container .card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+    margin-top: 10%;
+    margin-bottom: auto;
+}
+
+.container .card:hover {
+    height: 420px;
+}
+
+.container .card .imgBox {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 300px;
+    background: white;
+    border-radius: 40px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.container .card:hover .imgBox {
+    top: -100px;
+    scale: 0.75;
+    
+}
+
+.container .card .imgBox img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:scale-down;
+}
+
+.container .card .content {
+    position: absolute;
+    top: 340px;
+    width: 100%;
+    height: 30px;
+    padding: 0 30px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.container .card:hover .content {
+    top: 160px;
+    height: 290px;
+}
+
+.container .card .content h2 {
+    font-size: 1.7em;
+    color: rgb(0, 59, 0);
+    
+}
+
+/*footer*/
+footer.container {
+    height: 80px;
+    position: fixed;
+}
+
+/*Moblie*/
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .sign-up {
+        margin-right: 5px;
+    }
+
+    .navbar-toggler {
+        margin-left: 16px;
+    }
+    .container h2.text-center {
+        margin-top: 60%;
+
+    }
+    .container .card {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 300px;
+        height: 300px;
+        background: #fff;
+        border-radius: 50px;
+        transition: 0.5s;
+        margin-top: 60%;
+    
+    }
+
+    .container .content {
+        font-size:small;
+        margin-top: 0%;
+    }
+    
+}
+
+/*Tablet*/
+@media screen and (min-width: 500px) and (max-width: 768px) {
+    .navbar {
+        height: 125px;
+        margin: 10px;
+    }
+
+    .container h2.text-center {
+        margin-top: 20%;
+    }
+    .container .card {
+        margin-top:23%;
+    }
+
+}
+
+/*Laptop and Desktop*/
+@media screen and (min-width: 991px) and (max-width: 1300px) {
+
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #ff33a0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+
+    .container h2.text-center {
+        margin-top: 1%;
+    }
+
+    .container .card {
+        margin-top:16%;
+    }
+
+
+}
+@media screen and (min-width: 1400px){
+    .container h2.text-center {
+        margin-top: 5%;
+    }
+    .container .card {
+        margin-top: 12%;
+    }
+}
