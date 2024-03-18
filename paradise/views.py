@@ -50,7 +50,7 @@ def form(request):
         form = Form()   
 
 
-    return render(request, 'paradise/add_item.html', {'form': form})
+    return render(request, 'paradise/add_merch.html', {'form': form})
 
 
 def edit_merch(request, id):
