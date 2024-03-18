@@ -60,7 +60,7 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom, #FFFFFF, #ff9bd0, #FFFFFF);
+    background-image: linear-gradient(to bottom, #FFFFFF, #e3067c, #FFFFFF);
 }
 
 /*character page*/

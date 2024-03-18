@@ -1,0 +1,492 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #fff;
+    height: 125px;
+    margin: 10px;
+    border-radius: 50px;
+    padding: 0.3rem;
+}
+
+.navbar-brand,
+.offcanvas-title {
+    font-weight: 800;
+    color: #ff33a0;
+    font-size: 45px;
+    transition: 0.3s background-color;
+
+}
+
+
+.sign-up {
+    background-color: #ff33a0;
+    color: white;
+    font-size: 18px;
+    padding: 5px 8px;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+
+.sign-up:hover {
+    background-color: #333;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25em;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #666777;
+    font-weight: 400;
+    position: relative;
+    font-size: large;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff33a0;
+}
+
+/*Hero section*/
+#hero-section {
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+#hero-section::before {
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.text-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: #ffffff;
+    min-width: 90%;
+}
+.text-wrapper h1,
+.text-wrapper p
+ {
+   text-align : center;
+   font-size: large;
+}
+
+.text-wrapper h1 {
+    font-size: x-large;
+    font-weight: 800;
+}
+
+
+
+/*Main*/
+main {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #FFFFFF, #e3067c, #FFFFFF);
+}
+
+
+/*merch main*/
+#section {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.row {
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 10px 0;
+    transition: ease all 2.3s;
+    margin-top: -20%;
+}
+
+.card:hover .cover {
+    transform: rotateX(0deg) rotateY(-180deg);
+}
+
+.cover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: ease all 2.3s;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.cover:before {
+    content: '';
+    position: absolute;
+    box-shadow: 0 0 12px rgba(187, 117, 117, 0.3);
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2;
+    transition: ease all 2.3s;
+    transform-style: preserve-3d;
+    transform: translateZ(0px);
+}
+
+.cover:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    transition: ease all 1.3s;
+
+}
+
+.description {
+    position: absolute;
+    font-weight: 500;
+    color: white;
+    transform-style: preserve-3d;
+    transition: ease all 2.3s;
+    font-size: 16px;
+    transform: translateZ(0px);
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: hsla(0, 2%, 11%, 0.742);
+    width: 100%;
+    top: 45%;
+    text-align: center;
+
+}
+
+
+.cover h1 {
+    font-weight: 200;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    transform-style: preserve-3d;
+    transition: ease all 2.3s;
+    z-index: 3;
+    font-size: 1em;
+    padding: 10px;
+    background-color: hsla(0, 2%, 11%, 0.742);
+}
+
+.cover h2 {
+    font-weight: 200;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: white;
+    transform-style: preserve-3d;
+    transition: ease all 2.3s;
+    z-index: 3;
+    font-size: 16px;
+    padding: 5px;
+    background-color: hsla(0, 2%, 11%, 0.742);
+}
+
+.cover .price {
+    font-weight: 200;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    transform-style: preserve-3d;
+    transition: ease all 2.3s;
+    z-index: 4;
+    font-size: 1em;
+    padding: 10px;
+    background-color: hsla(0, 2%, 11%, 0.742);
+
+}
+
+.card-back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #0b0f08;
+    transform-style: preserve-3d;
+    transition: ease all 2.3s;
+    transform: translateZ(-1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back a {
+    transform-style: preserve-3d;
+    transition: ease transform 2.3s, ease background .5s;
+    transform: translateZ(-1px) rotatey(-180deg);
+    background: transparent;
+    border: 1px solid white;
+    font-weight: 200;
+    font-size: 1.3em;
+    color: white;
+    padding: 14px 32px;
+    outline: none;
+    text-decoration: none;
+}
+
+.card-back a:hover {
+    background-color: white;
+    color: #0b0f08;
+}
+
+.card.flipped .cover {
+    transform: rotateY(0deg);
+    transition: ease all 2.3s;
+}
+
+#link-to-home {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    padding: 10px;
+    font-size: large;
+}
+
+
+#main-heading {
+    text-align: center;
+    margin-top: 20px;
+    font-size: medium;
+    background-color: chocolate;
+}
+
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #0b0f08;
+    margin-bottom: 10px;
+
+}
+
+
+#merch-detail-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#details {
+    display: flex;
+    align-items: baseline;
+    padding: 20px;
+    margin-top: auto;
+}
+
+#details>div:first-child {
+    margin-right: 2rem;
+}
+
+#detail-image {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.description-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: auto;
+
+}
+
+#edit {
+    margin-top: 1rem;
+}
+
+#contact-seller {
+    width: 100%;
+}
+
+#edit a,
+#delete a { 
+    width: 100px;
+    margin-right: 1em;
+}
+
+/* add merch page */
+.form p {
+    font-size: 16px; 
+    color: #333; 
+    width: 50%;
+}
+.form-heading {
+    font-size: 50px;
+    text-transform: capitalize;
+    margin-top: 20px;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+ 
+.form-container {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: hsl(208, 76%, 47%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #0a3360;
+}
+
+
+/*delete page*/
+#delete-conatainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    font-size: large;
+    color: green;
+    height: 100vh;
+    flex-direction: column;
+}
+
+
+
+
+/*footer*/
+footer.container {
+    height: 80px;
+    position: fixed;
+}
+
+
+
+/*Moblie*/
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .sign-up {
+        margin-right: 5px;
+    }
+
+    .navbar-toggler {
+        margin-left: 16px;
+    }
+
+    .container h1.text-center {
+        margin-top: 50%;
+    }
+
+}
+
+/*Tablet*/
+@media screen and (min-width: 510px) {
+    .navbar {
+        height: 125px;
+        margin: 10px;
+    }
+
+    .container h1.text-center {
+        margin-top: 20%;
+    }
+
+    .text-container {
+        top: 50%;
+        left: 50%;
+    }
+    .text-wrapper h1,
+    .text-wrapper p
+     {
+       font-size: large;
+    }
+    .text-wrapper h1 {
+        font-size: xx-large;
+    }
+}
+
+/*Laptop and Desktop*/
+@media screen and (min-width: 991px) and (max-width: 1300px) {
+
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #ff33a0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+
+    .container h1.text-center {
+        margin-top: 15%;
+    }
+    .text-container {
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container h1.text-center {
+        margin-top: 5%;
+    }
+
+    .text-container {
+        max-width: 40%;
+    }
+}
