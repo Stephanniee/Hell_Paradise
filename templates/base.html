@@ -62,17 +62,19 @@
                             {% if user.is_authenticated %}
                             <!-- Authentication Buttons for Authenticated Users -->
                             <li class="nav-item">
-                                <a class="nav-link mx-2 active {% if request.path == add_merch_url %}active{% endif %}"
+                                <a class="nav-link mx-2  {% if request.path == add_merch_url %}active{% endif %}"
                                     aria-current="page" href="{% url 'form' %}">Add Merchandise</a>
                             </li>
+                        </ul>
+                        <div class="navbar-nav ms-auto"></div>
                             <div class="d-flex">
-                                <div class="me-2">
+                                <div class="me-3" style="height: 20px;">
                                 <a class="sign-up"
-                                    class=" {% if request.path == logout_url %}active{% endif %}"
+                                    class=" {% if request.path == logout_url %}active{% endif %}" 
                                     aria-current="page" href="{% url 'account_logout' %}">Logout <span> {{ user|capfirst}}</span></a>
                                 </div>
                             </div>
-                        </ul>
+                        </div>
                         {% else %}
                         <!-- Sign-up and Sign-in Buttons for Non-authenticated Users -->
                         <div class="navbar-nav ms-auto">

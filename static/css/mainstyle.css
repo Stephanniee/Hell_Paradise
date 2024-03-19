@@ -43,7 +43,11 @@
     visibility: hidden;
     transition: 0.3s ease-in-out;
 }
-
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+}
 .sign-up:hover, .sign-in:hover {
     background-color: #333;
     color: white;

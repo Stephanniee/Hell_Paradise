@@ -18,7 +18,7 @@ def quiz(request):
 
 def merch(request):
     merch = Merch.objects.all()
-    context = {'merch': merch}
+    context = {'merchs': merch}
     return render(request, 'paradise/merch.html', context)
 
 def merch_detail(request, id):
@@ -45,7 +45,7 @@ def form(request):
             product.user = request.user
             form.save()
             message = 'Product has been added successfully'
-            return render(request, 'merch/confirmation.html', {'message': message})
+            return render(request, 'paradise/confirmation.html', {'message': message})
     else:
         form = Form()   
 
@@ -60,3 +60,4 @@ def edit_merch(request, id):
         form.save()
         return redirect('index')
     return render(request, 'paradise/merch_product.html', {'form': form, 'merch': merch})
+
