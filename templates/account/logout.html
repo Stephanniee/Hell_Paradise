@@ -4,9 +4,12 @@
     {% trans "Sign Out" %}
 {% endblock head_title %}
 {% block content %}
+<h1 class="form-heading">
     {% element h1 %}
         {% trans "Sign Out" %}
     {% endelement %}
+</h1>
+    <div class="form-container"></div>
     <p>{% trans 'Are you sure you want to sign out?' %}</p>
     {% url 'account_logout' as action_url %}
     {% element form method="post" action=action_url no_visible_fields=True %}
@@ -24,4 +27,5 @@
             {% endelement %}
         {% endslot %}
     {% endelement %}
+</div>
 {% endblock content %}

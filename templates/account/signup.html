@@ -7,6 +7,11 @@
     {% element h1 %}
         {% trans "Sign Up" %}
     {% endelement %}
+    <h1 class="form-heading"> 
+        {% element h1 %}
+        {% trans "Sign Up" %}
+    {% endelement %}</h1>
+    <div class="form-container">
     <p>
         {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
     </p>
@@ -31,4 +36,5 @@
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
+</div>
 {% endblock content %}
