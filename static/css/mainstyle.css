@@ -21,7 +21,7 @@
 }
 
 
-.sign-up {
+.sign-up, .sign-in {
     background-color: #ff33a0;
     color: white;
     font-size: 18px;
@@ -29,11 +29,24 @@
     border-radius: 60px;
     text-decoration: none;
     transition: 0.3s background-color;
+    margin: 0;
+}
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ff33a0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
 }
 
-
-.sign-up:hover {
+.sign-up:hover, .sign-in:hover {
     background-color: #333;
+    color: white;
 }
 
 .navbar-toggler {
@@ -116,9 +129,6 @@ footer.container {
 
 /*Moblie*/
 @media screen and (min-width: 320px) and (max-width: 500px) {
-    .sign-up {
-        margin-right: 5px;
-    }
 
     .navbar-toggler {
         margin-left: 16px;

@@ -1,16 +1,17 @@
-{% extends "account/base_entrance.html" %}
-{% load allauth i18n %}
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load allauth account %}
 {% block head_title %}
-    {% trans "Signup" %}
+{% trans "Sign Up" %}
 {% endblock head_title %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/merchstyle.css' %}">
+{% endblock extrahead %}
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    <h1 class="form-heading"> 
-        {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}</h1>
+<h1 class="form-heading">
+    {% trans "Sign Up" %}
+</h1>
     <div class="form-container">
     <p>
         {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
@@ -26,13 +27,13 @@
                        name="{{ redirect_field_name }}"
                        value="{{ redirect_field_value }}" />
             {% endif %}
-        {% endslot %}
-        {% slot actions %}
-            {% element button tags="prominent,signup" type="submit" %}
+            {% endslot %}
+            {% slot actions %}
+            <button id="submit" type="submit">
                 {% trans "Sign Up" %}
+            </button>
+            {% endslot %}
             {% endelement %}
-        {% endslot %}
-    {% endelement %}
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}

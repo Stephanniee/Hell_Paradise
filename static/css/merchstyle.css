@@ -21,8 +21,7 @@
 
 }
 
-
-.sign-up {
+.sign-up, .sign-in {
     background-color: #ff33a0;
     color: white;
     font-size: 18px;
@@ -30,22 +29,11 @@
     border-radius: 60px;
     text-decoration: none;
     transition: 0.3s background-color;
-    position: right;
-    justify-content: space-between;
-}
-.sign-in {
-    background-color: #ff33a0;
-    color: white;
-    font-size: 18px;
-    padding: 5px 8px;
-    border-radius: 60px;
-    text-decoration: none;
-    transition: 0.3s background-color;
-    position: right;
-    justify-content: space-between;
+    margin: 0;
 }
 
-.sign-up:hover, .sign-in:hover {
+.sign-up:hover,
+.sign-in:hover {
     background-color: #333;
     color: white;
 }
@@ -72,7 +60,18 @@
 .nav-link.active {
     color: #ff33a0;
 }
-
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ff33a0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
 /*Hero section*/
 #hero-section {
     background-size: cover;
@@ -96,15 +95,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     min-width: 90%;
 }
+
 .text-wrapper h1,
-.text-wrapper p
- {
-   text-align : center;
-   font-size: large;
+.text-wrapper p {
+    text-align: center;
+    font-size: large;
 }
 
 .text-wrapper h1 {
@@ -117,7 +116,7 @@
 /*Main*/
 main {
     width: 100%;
-    height: 120vh;
+    height: 100vh;
     background-image: linear-gradient(to bottom, #FFFFFF, #d75e9e, #FFFFFF);
 }
 
@@ -352,26 +351,27 @@ h1 {
 }
 
 #edit a,
-#delete a { 
+#delete a {
     width: 100px;
     margin-right: 1em;
 }
 
 /* add merch page */
 .form p {
-    font-size: 16px; 
-    color: white; 
-    width: 50%;
+    font-size: 16px;
+    color: blueviolet;
+    width: 100%;
 }
+
 .form-heading {
     font-size: 50px;
     text-transform: capitalize;
-    margin-top: 40px;
+    margin-top: 140px;
     color: blueviolet;
     margin-bottom: 20px;
     text-align: center;
 }
- 
+
 .form-container {
     width: 100%;
     align-items: center;
@@ -394,6 +394,7 @@ form {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 #submit:hover {
@@ -426,8 +427,8 @@ footer.container {
 
 /*Moblie*/
 @media screen and (min-width: 320px) and (max-width: 500px) {
-    .sign-up {
-        margin-right: 5px;
+    main {
+        height: 120vh;
     }
 
     .navbar-toggler {
@@ -437,6 +438,11 @@ footer.container {
     .container h1.text-center {
         margin-top: 50%;
     }
+    .form-container {
+        width: 100%;
+          display: flex;
+        flex-direction: column;
+    }    
 
 }
 
@@ -455,13 +461,18 @@ footer.container {
         top: 50%;
         left: 50%;
     }
+
     .text-wrapper h1,
-    .text-wrapper p
-     {
-       font-size: large;
+    .text-wrapper p {
+        font-size: large;
     }
+
     .text-wrapper h1 {
         font-size: xx-large;
+    }
+
+    .spacer {
+        flex-grow: 2; 
     }
 }
 
@@ -490,8 +501,12 @@ footer.container {
     .container h1.text-center {
         margin-top: 15%;
     }
+
     .text-container {
         max-width: 50%;
+    }
+    .spacer {
+        flex-grow: 2; 
     }
 }
 
@@ -502,5 +517,8 @@ footer.container {
 
     .text-container {
         max-width: 40%;
+    }
+    .spacer {
+        flex-grow: 2; 
     }
 }

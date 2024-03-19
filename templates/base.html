@@ -34,7 +34,7 @@
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="{% url 'index' %}">Hell Paradise</a>
+                <a class="navbar-brand" href="{% url 'index' %}">Hell Paradise</a>
                 <button class="navbar-toggler pe-8" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -46,6 +46,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="close"></button>
                     </div>
                     <div class="offcanvas-body">
+                        <!-- Main Menu Items -->
                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                             <li class="nav-item"><a class="nav-link mx-2 active" aria-current="page"
                                     href="{% url 'index' %}">Home</a></li>
@@ -54,38 +55,42 @@
                             <li class="nav-item"><a class="nav-link mx-2" aria-current="page"
                                     href="">Recommendations</a></li>
                             <li class="nav-item"><a class="nav-link mx-2" aria-current="page"
-                                    href="{% url 'quiz' %}">Quiz</a>
-                            </li>
+                                    href="{% url 'quiz' %}">Quiz</a></li>
                             <li class="nav-item"><a class="nav-link mx-2" aria-current="page"
-                                    href="{% url 'merch' %}">Merchandise</a>
-                            </li>
-                            {% if user.is_authenticated %}
+                                    href="{% url 'merch' %}">Merchandise</a></li>
 
+                            {% if user.is_authenticated %}
+                            <!-- Authentication Buttons for Authenticated Users -->
                             <li class="nav-item">
                                 <a class="nav-link mx-2 active {% if request.path == add_merch_url %}active{% endif %}"
                                     aria-current="page" href="{% url 'form' %}">Add Merchandise</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="sign-up" class="nav-link mx-2 active {% if request.path == logout_url %}active{% endif %}"
-                                    aria-current="page" href="{% url 'account_logout' %}">Logout <span> {{ user|capfirst }}</span></a>
-                            </li>
-                            {% else %}
-                            <li class="sign-up">
-                                <a class="nav-link mx-2 active" aria-current="page"
-                                    href="{% url 'account_signup' %}">Sign up</a>
-                            </li>
-                            <li class="sign-in">
-                                <a class="nav-link mx-2 active" aria-current="page"
-                                    href="{% url 'account_login' %}">Sign in</a>
-                            </li>
-                            {% endif %}
+                            <div class="d-flex">
+                                <div class="me-2">
+                                <a class="sign-up"
+                                    class=" {% if request.path == logout_url %}active{% endif %}"
+                                    aria-current="page" href="{% url 'account_logout' %}">Logout <span> {{ user|capfirst}}</span></a>
+                                </div>
+                            </div>
                         </ul>
+                        {% else %}
+                        <!-- Sign-up and Sign-in Buttons for Non-authenticated Users -->
+                        <div class="navbar-nav ms-auto">
+                            <div class="d-flex">
+                                <div class="me-2">
+                                    <a class="sign-up" href="{% url 'account_signup' %}" role="button">Sign up</a>
+                                </div>
+                                <div class="me-2">
+                                    <a class="sign-in" href="{% url 'account_login' %}" role="button">Sign in</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
                     </div>
-
                 </div>
             </div>
-           
         </nav>
+
     </header>
     <main>
         {% block content %}
