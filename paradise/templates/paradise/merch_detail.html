@@ -6,7 +6,7 @@
 
 {% block content %}
 <div id="link-to-home">
-    <a href="{% url 'index'%}" class="btn btn-primary"> Back to Home</a>
+    <a href="{% url 'index'%}" class="go-to"> Back to Home</a>
 </div>
 <div id="merch-detail-container">
     <div id="details">
@@ -29,7 +29,7 @@
                     {% if merch.user == user %}
                         <div id="edit" class="text-center mt-4">
                             <a href="{% url 'edit_merch' merch.id %}" class="btn btn-outline-warning">Edit</a>
-                            <a href="{% url 'delete_merch'merch.id %}" class="btn btn-outline-danger">Delete</a>
+                            <a href="{% url 'delete_merch' id=merch.id %}" class="btn btn-outline-danger">Delete</a>
                         </div>
                     {% else %}
                         <div id="contact-seller" class="text-center mt-4">

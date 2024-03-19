@@ -47,7 +47,7 @@
                     </div>
                     <div class="offcanvas-body">
                         <!-- Main Menu Items -->
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <ul class="navbar-nav mx-auto"> 
                             <li class="nav-item"><a class="nav-link mx-2 active" aria-current="page"
                                     href="{% url 'index' %}">Home</a></li>
                             <li class="nav-item"><a class="nav-link mx-2" aria-current="page"
@@ -58,41 +58,34 @@
                                     href="{% url 'quiz' %}">Quiz</a></li>
                             <li class="nav-item"><a class="nav-link mx-2" aria-current="page"
                                     href="{% url 'merch' %}">Merchandise</a></li>
-
                             {% if user.is_authenticated %}
-                            <!-- Authentication Buttons for Authenticated Users -->
-                            <li class="nav-item">
-                                <a class="nav-link mx-2  {% if request.path == add_merch_url %}active{% endif %}"
+                            <!-- Add Merchandise Button for Authenticated Users -->
+                            <div class="nav-item">
+                                <a class="nav-link mx-2 {% if request.path == add_merch_url %}active{% endif %}"
                                     aria-current="page" href="{% url 'form' %}">Add Merchandise</a>
-                            </li>
+                            </div>
+                            {% endif %}
                         </ul>
-                        <div class="navbar-nav ms-auto"></div>
-                            <div class="d-flex">
-                                <div class="me-3" style="height: 20px;">
-                                <a class="sign-up"
-                                    class=" {% if request.path == logout_url %}active{% endif %}" 
-                                    aria-current="page" href="{% url 'account_logout' %}">Logout <span> {{ user|capfirst}}</span></a>
-                                </div>
+                        {% if user.is_authenticated %}
+                        <!-- Authentication Buttons for Authenticated Users -->
+                        <div class="navbar-nav ms-auto"> 
+                            <div class="nav-link me-2">
+                                <a class="sign-up" href="{% url 'account_logout' %}">Logout <span>{{ user|capfirst }}</span></a>
                             </div>
                         </div>
                         {% else %}
                         <!-- Sign-up and Sign-in Buttons for Non-authenticated Users -->
-                        <div class="navbar-nav ms-auto">
-                            <div class="d-flex">
-                                <div class="me-2">
-                                    <a class="sign-up" href="{% url 'account_signup' %}" role="button">Sign up</a>
-                                </div>
-                                <div class="me-2">
-                                    <a class="sign-in" href="{% url 'account_login' %}" role="button">Sign in</a>
-                                </div>
-                            </div>
+                        <div class="nav-link me-2" style="margin-bottom: 7px;">
+                            <a class="sign-up" href="{% url 'account_signup' %}" role="button">Sign up</a>
+                        </div>
+                        <div class="nav-link" style="margin-bottom: 7px;">
+                            <a class="sign-in" href="{% url 'account_login' %}" role="button">Sign in</a>
                         </div>
                         {% endif %}
                     </div>
                 </div>
             </div>
         </nav>
-
     </header>
     <main>
         {% block content %}
