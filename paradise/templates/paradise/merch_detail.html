@@ -1,48 +1,50 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extrahead %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/merchstyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/detailstyle.css' %}">
 {% endblock %}
 
 {% block content %}
-<div id="link-to-home">
-    <a href="{% url 'index'%}" class="go-to"> Back to Home</a>
-</div>
-<div id="merch-detail-container">
-    <div id="details">
-        <div>
-            <h1 style="text-align: center;">{{ product.title }}</h1>
-            {% if merch.image %}
-            <img src="{{ merch.image.url }}" style="max-width: 300px;" id="detail-image" alt="{{ merch.name }}">
-            {% else %}
-            <p>No Image</p>
-            {% endif %}
-            <p><span style="font-size: 20px;">£{{ merch.price }}</span></p>
-        </div>
-        <div class="description-1">
-            <h2>Description</h2>
-            <p>{{ merch.description }}</p>
-            <h2>Seller</h2>
-            <p>{{ merch.user|capfirst }}</p>
-            <div>
-                {% if user.is_authenticated %}
-                    {% if merch.user == user %}
-                        <div id="edit" class="text-center mt-4">
-                            <a href="{% url 'edit_merch' merch.id %}" class="btn btn-outline-warning">Edit</a>
-                            <a href="{% url 'delete_merch' id=merch.id %}" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                    {% else %}
-                        <div id="contact-seller" class="text-center mt-4">
-                            <a href="" class="btn btn-success">Contact Seller</a>
-                        </div>
-                    {% endif %}
+
+<section class="container_1">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="main_image">
+                {% if merch.image %}
+                <img src="{{ merch.image.url }}" id="detail-image" alt="{{ merch.name }}">
                 {% else %}
-                    <div id="add-to-cart" class="text-center mt-4">
-                        <a href="{% url 'account_signup' %}" class="btn btn-warning">You have to be a member to buy this product</a>
-                    </div>
+                <p>No Image</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="right">
+                <h3>{{ merch.name }}</h3>
+                <h4><small>£{{ merch.price }}</small></h4>
+                <p>{{ merch.description }}</p>
+                <h2>Seller:{{ merch.user|capfirst }}</h2>
+                {% if user.is_authenticated %}
+                {% if merch.user == user %}
+                <div class="text-center mt-4">
+                    <a href="{% url 'edit_merch' id=merch.id  %}" class="btn btn-outline-warning" id="edit">Edit</a>
+                    <a href="{% url 'delete_merch' id=merch.id %}" class="btn btn-outline-danger" id="delete">Delete</a>
+                </div>
+                {% else %}
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-success" class="sign-up">Contact Seller</a>
+                </div>
+                {% endif %}
+                {% else %}
+                <div class="text-center">
+                    <a href="{% url 'account_signup' %}" class="go-to">You have to be a member to buy this product</a>
+                </div>
                 {% endif %}
             </div>
         </div>
     </div>
+</section>
+<div id="link-to-home" class="text-center mt-4">
+    <a href="{% url 'index'%}" class="go-to">Back to Home</a>
 </div>
+
 {% endblock %}

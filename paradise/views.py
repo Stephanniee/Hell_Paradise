@@ -58,6 +58,6 @@ def edit_merch(request, id):
     form = Form(request.POST or None, request.FILES or None,  instance=merch)
     if form.is_valid():
         form.save()
-        return redirect('index')
-    return render(request, 'paradise/merch_product.html', {'form': form, 'merch': merch})
+        return redirect('merch')
+    return render(request, 'paradise/edit_merch.html', {'form': form, 'merch': merch})
 

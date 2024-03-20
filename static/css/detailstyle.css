@@ -1,0 +1,328 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #fff;
+    height: 125px;
+    margin: 10px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 0.3rem;
+}
+
+.navbar-brand,
+.offcanvas-title {
+    font-weight: 800;
+    color: #ff33a0;
+    font-size: 45px;
+    transition: 0.3s background-color;
+
+}
+
+.sign-up,
+.sign-in {
+    background-color: #ff33a0;
+    color: white;
+    font-size: 18px;
+    padding: 5px 8px;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    margin: 0;
+    display: inline-block;
+}
+
+.sign-up:hover,
+.sign-in:hover {
+    background-color: #333;
+    color: white;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25em;
+    margin-left: 10px;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link {
+    color: #666777;
+    font-weight: 400;
+    position: relative;
+    font-size: large;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff33a0;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ff33a0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+}
+
+/*Main*/
+main {
+    width: 100%;
+    background-image: linear-gradient(to bottom, #FFFFFF, #d75e9e, #FFFFFF);
+}
+
+
+/* merch details page */
+.container_1 {
+    max-width: 60%;
+    margin: auto;
+    margin-top: 45%;
+    background: white;
+    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.5);
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.left,
+.right {
+    flex: 1;
+}
+
+.main_image img {
+    width: 100%;
+    height: 100%;
+    object-fit:contain ;
+  
+}
+
+
+.right {
+    padding-top: 30px;
+    margin-top: 20%;
+}
+
+h3 {
+    color: #af827d;
+    margin: 20px 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: -20%;
+}
+
+h5,
+p,
+h2 {
+    color: #837d7c;
+}
+
+h4 {
+    text-align: center;
+}
+
+small {
+    color: red;
+}
+
+p {
+    margin: 20px 0 50px;
+    line-height: 25px;
+    text-align: center;
+}
+
+#contact-seller,
+.go-to {
+    background-color: #c1988b;
+    color: white;
+    font-size: 18px;
+    padding: 5px 8px;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    margin: 0;
+    display: inline-block;
+}
+
+#edit,
+#delete {
+    background-color: #c1988b;
+    color: white;
+    font-size: 18px;
+    padding: 5px 8px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    margin: 0;
+    display: inline-block;
+    border: none;
+
+}
+
+#edit:hover {
+    background-color: rgb(0, 149, 255);
+    color: white;
+}
+
+#delete:hover {
+    background-color: red;
+    color: white;
+
+}
+
+.go-to:hover,
+#contact-seller:hover {
+    background-color: #000409;
+    color: white;
+}
+
+
+#delete-conatainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    font-size: large;
+    height: 100vh;
+    flex-direction: column;
+    color: white;
+
+}
+
+.go-home {
+    background-color: blueviolet;
+    color: white;
+    font-size: 18px;
+    padding: 5px 8px;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+    margin: 0;
+    display: inline-block;
+}
+
+.go-home:hover {
+    background-color: #000409;
+    color: white;
+}
+
+
+
+/*footer*/
+footer.container {
+    height: 80px;
+    position: fixed;
+}
+
+
+/*Moblie*/
+@media screen and (min-width: 320px) and (max-width: 500px) {
+    .navbar-toggler {
+        margin-left: 16px;
+    }
+   
+}
+
+
+/*Tablet*/
+@media screen and (min-width: 510px) {
+    .navbar {
+        height: 125px;
+        margin: 10px;
+    }
+
+    .container_1 {
+        margin-top: 20%;
+
+    }
+
+    .container_1 {
+        margin-top: 18%;
+        height: 80vh;
+
+    }
+
+    h2 {
+        font-size: 20px;
+
+    }
+
+}
+
+/*Laptop and Desktop*/
+@media screen and (min-width: 991px) and (max-width: 1300px) {
+
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #ff33a0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+
+    .container_1 {
+        margin-top: 15%;
+        height: 70vh;
+
+    }
+
+    h2 {
+        font-size: 20px;
+
+    }
+
+}
+
+@media screen and (min-width: 1400px) {
+    .container_1 {
+        margin-top: 15%;
+        height: 70vh;
+
+    }
+
+    p {
+        font-size: large;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-top: 10%;
+
+    }
+
+}
