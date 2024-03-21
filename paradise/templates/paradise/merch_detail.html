@@ -9,7 +9,7 @@
 <section class="container_1">
     <div class="row">
         <div class="col-md-6">
-            <div class="main_image">
+            <div class="main_image" style="max-width: 400px;">
                 {% if merch.image %}
                 <img src="{{ merch.image.url }}" id="detail-image" alt="{{ merch.name }}">
                 {% else %}
@@ -31,7 +31,7 @@
                 </div>
                 {% else %}
                 <div class="text-center mt-4">
-                    <a href="#" class="btn btn-success" class="sign-up">Contact Seller</a>
+                    <a href="{% url 'contact'%}" class="btn btn-success" class="sign-up">Contact Seller</a>
                 </div>
                 {% endif %}
                 {% else %}

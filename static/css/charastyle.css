@@ -40,6 +40,9 @@
     border: none;
     font-size: 1.25em;
 }
+.navbar .container-fluid{
+    flex-wrap: nowrap;
+}
 
 .navbar-toggler:focus,
 .btn-close:focus {
@@ -169,10 +172,6 @@ footer.container {
 
 /*Moblie*/
 @media screen and (min-width: 320px) and (max-width: 500px) {
-
-    .navbar-toggler {
-        margin-left: 16px;
-    }
     .container h2.text-center {
         margin-top: 60%;
 

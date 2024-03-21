@@ -4,6 +4,7 @@ from django.contrib import messages
 from .models import Merch
 from .form import Form
 from .form import ContactForm
+from django.core.mail import EmailMessage
 
 def index(request):
     context = {'merch': merch}
@@ -62,15 +63,30 @@ def edit_merch(request, id):
         return redirect('merch')
     return render(request, 'paradise/edit_merch.html', {'form': form, 'merch': merch})
 
-def contact (request):
+def contact(request):
     if request.method == 'POST':
-       form = ContactForm(request.POST)
-       if form.is_valid():
-           name = form.cleaned_data['name']
-           email = form.cleaned_data['email']
-           subject = form.cleaned_data['subject']
-           message = form.cleaned_data['message']
-           return redirect('success')
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            try:
+                email_message = EmailMessage(
+                    subject='Contact Form Submission: {}'.format(subject),
+                    body=message,
+                    from_email=email,
+                    to=['sandbox.smtp.mailtrap.io'], 
+                    reply_to=[email]
+                )
+                email_message.send()
+            except Exception as e:
+                print("Email sending failed:", e)
+                return redirect('error')  
+            return redirect('success')  
     else:
         form = ContactForm()
     return render(request, 'paradise/contact.html', {'form': form})
+def success(request):
+    return render(request, 'paradise/success.html')
+    

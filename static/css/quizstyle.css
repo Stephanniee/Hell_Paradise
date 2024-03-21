@@ -48,7 +48,9 @@ main {
     border: none;
     font-size: 1.25em;
 }
-
+.navbar .container-fluid{
+    flex-wrap: nowrap;
+}
 .navbar-toggler:focus,
 .btn-close:focus {
     box-shadow: none;
@@ -450,9 +452,6 @@ footer.container {
 /*Moblie*/
 @media screen and (min-width: 320px) and (max-width: 500px) {
 
-    .navbar-toggler {
-        margin-left: 16px;
-    }
 
     .result_box {
         width: 300px;

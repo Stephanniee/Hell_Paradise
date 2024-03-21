@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block extrahead %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/detailstyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/merchstyle.css' %}">
 {% endblock %}
 
 {% block content %}
-<h3>Success!!</h3>
+<div id="confirm-conatainer">
+<h3 id="success">You Have Successfully Submitted Your Message!!</h3>
+<a href="{% url 'merch' %}" class="go-to"> Go To Your Merch!!</a>
+</div>
 {% endblock %}
