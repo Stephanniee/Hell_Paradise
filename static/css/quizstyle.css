@@ -457,9 +457,9 @@ footer.container {
         width: 300px;
     }
 
-    .container-box {
-        width: 350px;
-        margin-top: 5%;
+    .container_box {
+        width: 90%;
+        margin-top: 15%;
     }
 
     footer .next_que {
@@ -470,17 +470,23 @@ footer.container {
     .rules_box {
         width: 90%;
     }
+    main{
+        height: 110vh;
+    
+    }
   
 }
 
 /*Tablet*/
-@media screen and (min-width: 510px) {
+@media screen and (min-width: 510px) and (max-width: 800px) {
     .navbar {
         height: 125px;
         margin: 10px;
     }
 
-
+    .container_box {
+        margin-top: 5%;
+    }
 }
 
 /*Laptop and Desktop*/
