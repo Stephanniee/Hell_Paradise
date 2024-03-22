@@ -137,14 +137,18 @@ footer.container {
 
 
 /*Moblie*/
-@media screen and (max-width: 320px)  {
+@media screen and (max-width: 320px) {
     .navbar-brand {
         font-size: 30px;
     }
     .text-wrapper p {
         font-size: 15px;
 }
+.navbar {
+    height: 110px;
+    margin: 5px;
 
+}
 }
 @media screen and (min-width: 370px) and (max-width: 500px) {
   
