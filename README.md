@@ -8,7 +8,7 @@ The live link can be found here:
 [View GitHub project here]( https://github.com/Stephanniee/Hell_Paradise)
 
 
-[View Deployed project here]( https://hell-paradise-02ced4a7668c.herokuapp.com/)
+[View Deployed project here](https://hell-paradise-351fd096a433.herokuapp.com/)
 ### Responsive Mockup
 ![image](https://github.com/Stephanniee/Hell_Paradise/assets/140328398/fe8fd3f6-fdb1-46aa-ae3a-201d13f1e7f2)
 
