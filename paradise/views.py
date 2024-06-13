@@ -1,21 +1,19 @@
-from django.shortcuts import render
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import Merch
-from .form import Form
-from .form import ContactForm
 from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
+from .models import Merch
+from .form import Form, ContactForm
 
 def index(request):
+    merch = Merch.objects.all()
     context = {'merch': merch}
-    return render(request, 'paradise/index.html')
+    return render(request, 'paradise/index.html', context)
 
 def characters(request):
-    context = {}
     return render(request, 'paradise/characters.html')
 
 def quiz(request):
-    context = {}
     return render(request, 'paradise/quizgame.html')
 
 def merch(request):
@@ -24,43 +22,49 @@ def merch(request):
     return render(request, 'paradise/merch.html', context)
 
 def merch_detail(request, id):
-    merch = Merch.objects.get(id=id)
-    context = { 
-        'merch': merch
-    }
+    merch = get_object_or_404(Merch, id=id)
+    context = {'merch': merch}
     return render(request, 'paradise/merch_detail.html', context)
 
+@login_required
 def delete_merch(request, id):
-    merch = Merch.objects.filter(id=id)
-    merch.delete()
-    message = 'Merchandise deleted successfully'
-    context = {'message': message,
-               'merch': merch}
+    merch = get_object_or_404(Merch, id=id)
+    if merch.user == request.user:
+        merch.delete()
+        messages.success(request, 'Merchandise deleted successfully')
+    else:
+        messages.error(request, 'You are not authorized to delete this merchandise')
+    return redirect('merch')
 
-    return render(request, 'paradise/delete.html', context)
-
-def form(request):
-    form = Form(request.POST, request.FILES)
+@login_required
+def add_merch(request):
     if request.method == 'POST':
+        form = Form(request.POST, request.FILES)
         if form.is_valid():
             product = form.save(commit=False)
             product.user = request.user
-            form.save()
-            message = 'Product has been added successfully'
-            return render(request, 'paradise/confirmation.html', {'message': message})
+            product.save()
+            messages.success(request, 'Product has been added successfully')
+            return redirect('merch')
     else:
-        form = Form()   
-
-
+        form = Form()
     return render(request, 'paradise/add_merch.html', {'form': form})
 
-
+@login_required
 def edit_merch(request, id):
-    merch = Merch.objects.get(id=id)
-    form = Form(request.POST or None, request.FILES or None,  instance=merch)
-    if form.is_valid():
-        form.save()
+    merch = get_object_or_404(Merch, id=id)
+    if merch.user != request.user:
+        messages.error(request, 'You are not authorized to edit this merchandise')
         return redirect('merch')
+
+    if request.method == 'POST':
+        form = Form(request.POST, request.FILES, instance=merch)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product has been updated successfully')
+            return redirect('merch')
+    else:
+        form = Form(instance=merch)
     return render(request, 'paradise/edit_merch.html', {'form': form, 'merch': merch})
 
 def contact(request):
@@ -80,13 +84,13 @@ def contact(request):
                     reply_to=[email]
                 )
                 email_message.send()
+                return redirect('success')
             except Exception as e:
-                print("Email sending failed:", e)
-                return redirect('error')  
-            return redirect('success')  
+                messages.error(request, f"Email sending failed: {e}")
+                return redirect('error')
     else:
         form = ContactForm()
     return render(request, 'paradise/contact.html', {'form': form})
+
 def success(request):
     return render(request, 'paradise/success.html')
-    

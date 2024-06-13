@@ -7,7 +7,6 @@
 {% url 'merch' as merch_url %}
 {% url 'add_merch' as add_merch_url %}
 {% url 'account_logout' as logout_url %}
-{% url 'form' as form_url %}
 
 
 <!DOCTYPE html>
@@ -60,7 +59,7 @@
                             <!-- Add Merchandise Button for Authenticated Users -->
                             <div class="nav-item">
                                 <a class="nav-link mx-2 {% if request.path == add_merch_url %}active{% endif %}"
-                                    aria-current="page" href="{% url 'form' %}">Add Merchandise</a>
+                                    aria-current="page" href="{% url 'add_merch' %}">Add Merchandise</a>
                             </div>
                             {% endif %}
                         </ul>
