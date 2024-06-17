@@ -230,7 +230,7 @@ Finally, start the Django app again:
 With these steps completed, your Django app should now be up and running locally.
 
 ### Access
-Either users can create their own login credentials or they can use the username "Ru" with the password "1111" for authorised access.
+Either users can create their own login credentials or they can use the username "Ru" with the password "12345678" for authorised access.
 ### Credits
 -	Bootstrap: A front-end framework facilitating responsive and mobile-first development. 
 -	Font Awesome: An icon library utilised to enhance visual elements. 
